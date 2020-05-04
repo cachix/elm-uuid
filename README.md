@@ -20,7 +20,7 @@ random numbers, as opposed to hashing. See
 for more details).
 
 
-Check out the [example](https://github.com/Zinggi/elm-uuid/tree/master/examples) to see how this works in practice
+Check out the [example](./examples) to see how this works in practice
 
 
 Package originally by Daniel Bachler
