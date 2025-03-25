@@ -1,4 +1,4 @@
-module Prng.Uuid.Barebones exposing (isValidUuid, toUuidString)
+module Uuid.Barebones exposing (isValidUuid, toUuidString)
 
 import Array
 import Bitwise
