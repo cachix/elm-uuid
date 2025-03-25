@@ -1,11 +1,11 @@
 {
     "type": "package",
-    "name": "NoRedInk/elm-uuid",
+    "name": "cachix/elm-uuid",
     "summary": "V4 UUIDs - 128 bit pseudo-random identifiers (Fork with more randomness)",
     "license": "BSD-3-Clause",
-    "version": "2.0.1",
+    "version": "2.0.0",
     "exposed-modules": [
-        "Prng.Uuid"
+        "Uuid"
     ],
     "elm-version": "0.19.0 <= v < 0.20.0",
     "dependencies": {

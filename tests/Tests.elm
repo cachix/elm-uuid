@@ -5,7 +5,7 @@ module Tests exposing (all, buildUuid, initialSeedFuzzer, randomInt, uuidFuzzer)
 
 import Expect
 import Fuzz
-import Prng.Uuid as Uuid exposing (..)
+import Uuid exposing (..)
 import Random
 import Random.Pcg.Extended as RandomE
 import String
