@@ -3,7 +3,7 @@
     "name": "cachix/elm-uuid",
     "summary": "V4 UUIDs - 128 bit pseudo-random identifiers (Fork with more randomness)",
     "license": "BSD-3-Clause",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "exposed-modules": [
         "Uuid"
     ],
