@@ -3,7 +3,7 @@
     "name": "NoRedInk/elm-uuid",
     "summary": "V4 UUIDs - 128 bit pseudo-random identifiers (Fork with more randomness)",
     "license": "BSD-3-Clause",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "exposed-modules": [
         "Prng.Uuid"
     ],
@@ -16,6 +16,6 @@
     },
     "test-dependencies": {
         "elm/random": "1.0.0 <= v < 2.0.0",
-        "elm-explorations/test": "1.2.0 <= v < 2.0.0"
+        "elm-explorations/test": "2.2.0 <= v < 3.0.0"
     }
 }

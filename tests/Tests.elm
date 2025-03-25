@@ -8,7 +8,6 @@ import Fuzz
 import Prng.Uuid as Uuid exposing (..)
 import Random
 import Random.Pcg.Extended as RandomE
-import Shrink
 import String
 import Test exposing (..)
 
@@ -32,14 +31,12 @@ buildUuid integer =
 
 initialSeedFuzzer : Fuzz.Fuzzer RandomE.Seed
 initialSeedFuzzer =
-    Fuzz.custom
-        (Random.map (\x -> RandomE.initialSeed x []) randomInt)
-        Shrink.noShrink
+    Fuzz.map (\x -> RandomE.initialSeed x []) (Fuzz.int)
 
 
 uuidFuzzer : Fuzz.Fuzzer Uuid
 uuidFuzzer =
-    Fuzz.custom (Random.map buildUuid randomInt) Shrink.noShrink
+    Fuzz.map buildUuid Fuzz.int
 
 
 all : Test
@@ -49,12 +46,20 @@ all =
             \() ->
                 "63B9AAA2-6AAF-473E-B37E-22EB66E66B76"
                     |> isValidUuid
-                    |> Expect.true "should be valid"
+                    |> Expect.equal True
+                    |> Expect.onFail "should be valid"
+        , test "isValid - for valid UUIDv7" <|
+            \() ->
+                "01890a5d-ac91-7590-bcdf-a4b23dff0e96"
+                    |> isValidUuid
+                    |> Expect.equal True
+                    |> Expect.onFail "UUIDv7 should be valid"
         , test "isValid - for invalid uuid" <|
             \() ->
                 "zz"
                     |> isValidUuid
-                    |> Expect.false "should be invalid"
+                    |> Expect.equal False
+                    |> Expect.onFail "should be invalid"
         , fuzz initialSeedFuzzer "generate uuid" <|
             \initialSeed ->
                 let
@@ -64,7 +69,8 @@ all =
                 uuid
                     |> Uuid.toString
                     |> isValidUuid
-                    |> Expect.true "should be valid uuid"
+                    |> Expect.equal True
+                    |> Expect.onFail "should be valid uuid"
         , fuzz initialSeedFuzzer "generate two uuids" <|
             \initialSeed ->
                 let

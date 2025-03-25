@@ -10,7 +10,7 @@ import String
 
 {-| Verification function to check if the given string is a valid Uuid in the canonical
 representation xxxxxxxx-xxxx-Axxx-Yxxx-xxxxxxxxxxxx where A is the version number between
-[1-5] and Y is in the range [8-B]
+[1-5, 7] and Y is in the range [8-B]
 -}
 isValidUuid : String -> Bool
 isValidUuid uuidAsString =
@@ -47,7 +47,7 @@ limitDigitRange8ToB digit =
 
 uuidRegex : Regex.Regex
 uuidRegex =
-    Regex.fromString "^[0-9A-Fa-f]{8,8}-[0-9A-Fa-f]{4,4}-[1-5][0-9A-Fa-f]{3,3}-[8-9A-Ba-b][0-9A-Fa-f]{3,3}-[0-9A-Fa-f]{12,12}$"
+    Regex.fromString "^[0-9A-Fa-f]{8,8}-[0-9A-Fa-f]{4,4}-[1-57][0-9A-Fa-f]{3,3}-[8-9A-Ba-b][0-9A-Fa-f]{3,3}-[0-9A-Fa-f]{12,12}$"
         |> Maybe.withDefault Regex.never
 
 

@@ -67,8 +67,8 @@ toString (Uuid internalString) =
 
 
 {-| Create a Uuid from a String in the canonical form (e.g.
-"63B9AAA2-6AAF-473E-B37E-22EB66E66B76"). Note that this module only supports
-canonical Uuids, Versions 1-5 and will refuse to parse other Uuid variants.
+"63B9AAA2-6AAF-473E-B37E-22EB66E66B76"). Note that this module supports
+canonical Uuids, Versions 1-5 and 7, and will refuse to parse other Uuid variants.
 -}
 fromString : String -> Maybe Uuid
 fromString text =
